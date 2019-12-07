@@ -15,38 +15,38 @@ public class License{
         this.terms = builder.terms;
     }
 
-    public class Builder{
+    public static class Builder{
         String name;
         String copyright;
         String link;
         String license;
         String terms;
 
-        public Builder(String terms){
-            this.terms = terms;
+        //default term in example apache2.0, MIT
+        public Builder(){
         }
 
-        public Builder setName(String name){
+        public Builder name(String name){
             this.name = name;
             return this;
         }
 
-        public Builder setCopyright(String copyright) {
+        public Builder copyright(String copyright) {
             this.copyright = copyright;
             return this;
         }
 
-        public Builder setLink(String link) {
+        public Builder link(String link) {
             this.link = link;
             return this;
         }
 
-        public Builder setLicense(String license) {
+        public Builder license(String license) {
             this.license = license;
             return this;
         }
 
-        public Builder setTerms(String terms) {
+        public Builder terms(String terms) {
             this.terms = terms;
             return this;
         }
@@ -56,6 +56,13 @@ public class License{
             return new License(this);
         }
 
+        public void clear() {
+            this.name = null;
+            this.copyright = null;
+            this.link = null;
+            this.license = null;
+            this.terms = null;
+        }
     }
 
 }
