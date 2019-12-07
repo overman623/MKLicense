@@ -41,18 +41,5 @@ public class LicenseManager {
     //https://mongodb.github.io/mongo-java-driver/
     //Apache License 2.0
 
-    public class License{
-        String name;
-        String copyright;
-        String link;
-        String license;
-        String terms;
-    }
-
-
-    //License를 클래스 상속 예정.
-    //클래스에는 기본적인 license 내용이 있음.
-    //
-
 
 }
