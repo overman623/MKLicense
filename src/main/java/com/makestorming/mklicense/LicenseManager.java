@@ -11,7 +11,7 @@ public class LicenseManager {
 //    license term static String.
 //    private final String licenseTerm = null;
 
-    private ArrayList<License> licenses = new ArrayList<>();
+    private ArrayList<LicenseParent> licenses = new ArrayList<>();
 
     private LicenseManager(){}
 
@@ -23,26 +23,32 @@ public class LicenseManager {
         return licenseManager;
     }
 
-    public void addLicense(License license){
+    //부모뷰의 추가.
+    public void addLicense(LicenseParent license){
         licenses.add(license);
     }
 
-    //일단 텍스트를 때려박고 나서
+    //일단 텍스트 추가
     //단순 텍스트와 형식이 있는 텍스트를 구분한다.
     //단순텍스트와 형식이 있는 텍스트를 구분해서 클래스로 구분한다.
     //단순텍스트는 메모장 형식이고 형식텍스트는 제목과 내용등을 구분해서 기입한다.
     //형식텍스트는 5개의 하위 항목으로 나눈다.
     //형식텍스트의 정의 방식.
-    //        String name;
-    //        String copyright;
-    //        String link;
-    //        String license;
-    //        String terms;
 
     public View getView(){
         //새로운 레이아웃에서 처리한다.
         //뷰가 없을 때 에러처리.
-        //
+
+//        for(LicenseParent lp : licenses){
+//            lp.aaaa(); //반복처리하여 만들어 낸다.
+//        }
+
+        if(licenses.get(0) instanceof ObjectLicense){
+
+        }else if(licenses.get(0) instanceof TextLicense){
+
+        }
+
         return null;
     }
 
