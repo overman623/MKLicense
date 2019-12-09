@@ -1,16 +1,13 @@
 package com.makestorming.mklicense;
 
 import android.view.View;
-
 import java.util.ArrayList;
 
 public class LicenseManager {
 
     private static LicenseManager licenseManager = null;
-
 //    license term static String.
 //    private final String licenseTerm = null;
-
     private ArrayList<LicenseParent> licenses = new ArrayList<>();
 
     private LicenseManager(){}
@@ -38,17 +35,13 @@ public class LicenseManager {
     public View getView(){
         //새로운 레이아웃에서 처리한다.
         //뷰가 없을 때 에러처리.
-
-//        for(LicenseParent lp : licenses){
-//            lp.aaaa(); //반복처리하여 만들어 낸다.
-//        }
-
-        if(licenses.get(0) instanceof ObjectLicense){
-
-        }else if(licenses.get(0) instanceof TextLicense){
-
+        for(LicenseParent lp : licenses){
+            if(lp instanceof ObjectLicense){
+                ((ObjectLicense)lp).setTerms("");
+            }else if(lp instanceof TextLicense){
+                ((TextLicense)lp).setText("");
+            }
         }
-
         return null;
     }
 
@@ -60,6 +53,5 @@ public class LicenseManager {
     //Copyright © 2008-present MongoDB, Inc.
     //https://mongodb.github.io/mongo-java-driver/
     //Apache License 2.0
-
 
 }
