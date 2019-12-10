@@ -1,5 +1,6 @@
 package com.makestorming.mklicense;
 
+import android.content.Context;
 import android.view.View;
 import java.util.ArrayList;
 
@@ -37,9 +38,13 @@ public class LicenseManager {
         //뷰가 없을 때 에러처리.
         for(LicenseParent lp : licenses){
             if(lp instanceof ObjectLicense){
-                ((ObjectLicense)lp).setTerms("");
+                ((ObjectLicense)lp).getTerms();
+                ((ObjectLicense)lp).getLicense();
+                ((ObjectLicense)lp).getCopyright();
+                ((ObjectLicense)lp).getLink();
+                ((ObjectLicense)lp).getName();
             }else if(lp instanceof TextLicense){
-                ((TextLicense)lp).setText("");
+                ((TextLicense)lp).getText();
             }
         }
         return null;
