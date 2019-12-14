@@ -1,18 +1,27 @@
 package com.makestorming.mklicense;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class LicenseManager {
 
     private static LicenseManager licenseManager = null;
     private ArrayList<LicenseParent> licenses = new ArrayList<>();
+    private Context context;
 
-    private LicenseManager(){}
+    private LicenseManager(Context context){
+        this.context = context;
+    }
 
-    public static LicenseManager getInstance(){
+    public static LicenseManager getInstance(Context context){
         if(licenseManager == null) {
-            licenseManager = new LicenseManager();
+            licenseManager = new LicenseManager(context);
         }
         return licenseManager;
     }
@@ -23,25 +32,22 @@ public class LicenseManager {
 
     public View getView(){
 
-//        StringBuilder sb = new StringBuilder();
+        LayoutInflater inflater = LayoutInflater.from(context);
+        LinearLayout linearLayout = (LinearLayout) inflater.inflate(R.layout.layout_license, null);
 
-        /*for(LicenseParent lp : licenses){
-            if(lp instanceof ObjectLicense){
-                sb.append(((ObjectLicense)lp).getName()).append('\n'); //required
-                sb.append(((ObjectLicense)lp).getCopyright()).append('\n');
-                sb.append(((ObjectLicense)lp).getLink()).append('\n'); //linked
-                sb.append(((ObjectLicense)lp).getLicense()).append('\n');
-                sb.append(((ObjectLicense)lp).getTerms());
-            }else if(lp instanceof TextLicense){
-                sb.append(((TextLicense)lp).getText()); //required
-            }
-        }*/
+        TextView textView = new TextView(context);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
+        for(LicenseParent ip : licenses) {
+            textView.setText(ip.toString());
+            //객체에 따라 텍스트 세팅 예정.
+        }
+        textView.setLayoutParams(lp);
+        textView.setTextColor(Color.parseColor("#000000"));
+        linearLayout.addView(textView);
 
-
-
-
-        return null;
+        return linearLayout;
     }
 
     //MongoDB Java Driver
