@@ -22,21 +22,28 @@ public class LicenseManager {
     }
 
     public View getView(){
-        for(LicenseParent lp : licenses){
+
+//        StringBuilder sb = new StringBuilder();
+
+        /*for(LicenseParent lp : licenses){
             if(lp instanceof ObjectLicense){
-                ((ObjectLicense)lp).getTerms();
-                ((ObjectLicense)lp).getLicense();
-                ((ObjectLicense)lp).getCopyright();
-                ((ObjectLicense)lp).getLink();
-                ((ObjectLicense)lp).getName();
+                sb.append(((ObjectLicense)lp).getName()).append('\n'); //required
+                sb.append(((ObjectLicense)lp).getCopyright()).append('\n');
+                sb.append(((ObjectLicense)lp).getLink()).append('\n'); //linked
+                sb.append(((ObjectLicense)lp).getLicense()).append('\n');
+                sb.append(((ObjectLicense)lp).getTerms());
             }else if(lp instanceof TextLicense){
-                ((TextLicense)lp).getText();
+                sb.append(((TextLicense)lp).getText()); //required
             }
-        }
+        }*/
+
+
+
+
+
         return null;
     }
 
-    //example
     //MongoDB Java Driver
     //Copyright © 2008-present MongoDB, Inc.
     //https://mongodb.github.io/mongo-java-driver/
