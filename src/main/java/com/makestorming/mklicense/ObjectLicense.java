@@ -8,12 +8,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder(builderMethodName = "hiddenBuilder")
@@ -85,4 +83,13 @@ public class ObjectLicense extends LicenseParent {
         return hiddenBuilder().context(context);
     }
 
+    @Override
+    public String toString() {
+        return
+                name + '\n' +
+                copyright + '\n' +
+                link + '\n' +
+                license + '\n' +
+                terms;
+    }
 }
