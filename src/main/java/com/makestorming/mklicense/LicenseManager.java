@@ -2,12 +2,15 @@ package com.makestorming.mklicense;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LicenseManager {
 
@@ -42,12 +45,24 @@ public class LicenseManager {
         for(LicenseParent ip : licenses) {
             textView.setText(ip.toString());
             //객체에 따라 텍스트 세팅 예정.
+            Linkify.TransformFilter mTransform = new Linkify.TransformFilter()
+            {
+                @Override
+                public String transformUrl(Matcher match, String url)
+                {
+                    return "";
+                }
+            };
+            Pattern pattern1 = Pattern.compile("검색하고자 하는 스트링");
+            Linkify.addLinks(textView, pattern1, "호출하고자 하는 url 스트링", null, mTransform);
+
         }
         textView.setLayoutParams(lp);
         textView.setTextColor(Color.parseColor("#000000"));
         linearLayout.addView(textView);
 
         return linearLayout;
+
     }
 
     //MongoDB Java Driver
