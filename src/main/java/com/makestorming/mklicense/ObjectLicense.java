@@ -85,11 +85,12 @@ public class ObjectLicense extends LicenseParent {
 
     @Override
     public String toString() {
-        return
-                name + '\n' +
-                copyright + '\n' +
-                link + '\n' +
-                license + '\n' +
-                terms;
+        String data = null;
+        if(name != null) data = name; //required
+        if(copyright != null) data =  '\n' + copyright;
+        if(link != null) data = '\n' + link;
+        if(license != null) data = '\n' + license;
+        if(terms != null) data = '\n' + terms;
+        return data;
     }
 }

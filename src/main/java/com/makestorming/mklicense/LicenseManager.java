@@ -44,19 +44,9 @@ public class LicenseManager {
 
         for(LicenseParent ip : licenses) {
             textView.setText(ip.toString());
-            //객체에 따라 텍스트 세팅 예정.
-            Linkify.TransformFilter mTransform = new Linkify.TransformFilter()
-            {
-                @Override
-                public String transformUrl(Matcher match, String url)
-                {
-                    return "";
-                }
-            };
-            Pattern pattern1 = Pattern.compile("검색하고자 하는 스트링");
-            Linkify.addLinks(textView, pattern1, "호출하고자 하는 url 스트링", null, mTransform);
-
+            Linkify.addLinks(textView, Linkify.WEB_URLS);
         }
+
         textView.setLayoutParams(lp);
         textView.setTextColor(Color.parseColor("#000000"));
         linearLayout.addView(textView);
