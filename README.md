@@ -1,2 +1,4 @@
 # MKLicense
-Android License Management Library
+라이센스를 관리하기 위해 만든 라이브러리입니다.
+
+참조하는 라이센스와 오픈소스를 인증하는 라이센스로 나뉘어져 있습니다.
